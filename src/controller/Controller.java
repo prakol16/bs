@@ -139,7 +139,7 @@ public class Controller {
 	public List<Player> getPlayers() {
 		return players;
 	}
-	public String toString() {
+	private String toString() {
 		StringBuilder str = new StringBuilder();
 		for (Player p : players) {
 			str.append(p);
