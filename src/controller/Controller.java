@@ -60,12 +60,12 @@ public class Controller {
 			p.drawCards(deck.subList(i * 13, (i + 1) * 13));
 		}
 		if (toLog) {
-			System.out.println(this);
+			System.out.println(this.asString());
 		}
 		for (int i = 0; i < 1000; ++i) {
 			runRound(players, toLog);
 			if (toLog) {
-				System.out.println(this);
+				System.out.println(this.asString());
 			}
 			Player winner = getWinner();
 			if (winner != null) {
@@ -139,7 +139,7 @@ public class Controller {
 	public List<Player> getPlayers() {
 		return players;
 	}
-	private String toString() {
+	private String asString() {
 		StringBuilder str = new StringBuilder();
 		for (Player p : players) {
 			str.append(p);
