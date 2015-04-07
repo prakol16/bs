@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import java.util.Set;
 
 import players.*;
 
@@ -85,7 +87,7 @@ public class Controller {
 	}
 	private void runRound(List<Player> players, boolean toLog) {
 		for (Player player : players) {
-			List<Card> cardsPlayed = player.requestCards(card, this);
+			Set<Card> cardsPlayed = new HashSet<Card>(player.requestCards(card, this));
 			if (cardsPlayed.size() == 0) throw new RuntimeException("Player " + player + " played zero cards");
 			boolean isBS = false;
 			for (Card c : cardsPlayed) {
