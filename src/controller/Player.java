@@ -3,6 +3,7 @@ package controller;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
 
 public abstract class Player {
 
@@ -11,6 +12,14 @@ public abstract class Player {
 	protected abstract List<Card> requestCards(int card, Controller controller);
 
 	protected abstract boolean bs(Player player, int card, int numberOfCards, Controller controller);
+	
+	protected void update(Controller controller) {
+		
+	}
+	
+	protected void initialize(Controller controller) {
+		
+	}
 
 	protected Card[] getHand() {
 		Card[] returnValue = new Card[hand.size()];
@@ -29,7 +38,7 @@ public abstract class Player {
 		return returnCard;
 	}
 	
-	void removeCards(List<Card> cards) {
+	void removeCards(Set<Card> cards) {
 		for (Card card : cards) {
 			hand.remove(card);
 		}
