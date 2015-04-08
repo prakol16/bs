@@ -18,7 +18,7 @@ public class Controller {
 	public Random rnd = new Random();
 	private int card;
 	private static final Class<?>[] playerClasses = {
-		Player1.class, Player2.class, Player3.class, Player4.class
+		Player1.class, Player2.class, Player3.class, Player4.class, PlayerTruthy.class
 	};
 	public static void main(String[] args) {
 		Controller c = new Controller();
@@ -61,11 +61,15 @@ public class Controller {
 			Player p = players.get(i);
 			p.drawCards(deck.subList(i * 13, (i + 1) * 13));
 		}
+		for (Player p : players) {
+			p.initialize(this);
+		}
 		if (toLog) {
 			System.out.println(this.asString());
 		}
 		for (int i = 0; i < 1000; ++i) {
 			runRound(players, toLog);
+			
 			if (toLog) {
 				System.out.println(this.asString());
 			}
@@ -132,6 +136,9 @@ public class Controller {
 			if (getWinner() != null) {
 				break;
 			}
+		}
+		for (Player p : players) {
+			p.update(this);
 		}
 	}
 
