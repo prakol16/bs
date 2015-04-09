@@ -95,8 +95,10 @@ public class Controller {
 			if (cardsPlayed.size() == 0) throw new RuntimeException("Player " + player + " played zero cards");
 			boolean isBS = false;
 			for (Card c : cardsPlayed) {
-				if (c.getNumber() != card) isBS = true;
-				break;
+				if (c.getNumber() != card) {
+					isBS = true;
+					break;
+				}
 			}
 			
 			if (toLog) {
